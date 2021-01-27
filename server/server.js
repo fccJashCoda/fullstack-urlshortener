@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const router = require('./routes/router');
 const ShortUrl = require('./models/shorturl');
+const regex = require('./utils/regex');
 require('dotenv').config();
 
 const app = express();
@@ -20,6 +21,13 @@ app.use('/short', router.urlshortener);
 // @ access Public
 app.get('/:shorturl', (req, res, next) => {
   const short = req.params.shorturl;
+
+  // redirect to 404 if key is not valid
+  if (!regex.keyValidation(short)) {
+    return next();
+  }
+
+  // retirects to the original url associated with the key (NOT YET IMPLEMENTED)
   ShortUrl.findOne({ shortUrl: short })
     .then((url) => {
       if (!url) {
@@ -28,10 +36,6 @@ app.get('/:shorturl', (req, res, next) => {
       return res.json(url);
     })
     .catch((err) => console.log(err));
-  // if shorturl doesn't pass regex, redirect to 404
-  // if (req.params.shorturl === 'test') {
-  //   return next();
-  // }
 });
 
 // 404
