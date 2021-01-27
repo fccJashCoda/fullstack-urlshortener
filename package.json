@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup": "concurrently \"cd server && npm install\" ",
+    "start": "concurrently \"cd server && npm start\" ",
+    "dev": "concurrently \"cd server && npm run dev\""
   },
   "keywords": [],
   "author": "",
