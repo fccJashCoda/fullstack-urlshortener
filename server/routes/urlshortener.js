@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Keygen = require('../utils/keygen');
 const ShortUrl = require('../models/shorturl');
+const regex = require('../utils/regex');
 
 const keygen = new Keygen();
 const duplicates = [];
@@ -18,6 +19,11 @@ router.get('/hello', (req, res) => {
 // @ access Public
 router.post('/new', async (req, res) => {
   const original = req.body.url;
+
+  if (!original || !regex.urlValidation(original)) {
+    return res.json({ error: 'invalid url' });
+  }
+
   let key;
   let cycle = 0;
 
@@ -36,7 +42,6 @@ router.post('/new', async (req, res) => {
 
   const originalMatch = await ShortUrl.findOne({ originalUrl: original });
   if (originalMatch) {
-    console.log('serving directly from database');
     return res.json(originalMatch);
   }
 
@@ -58,7 +63,7 @@ router.get('/showall', (req, res) => {
   ShortUrl.find()
     .then((data) => {
       if (!data) {
-        return res.json({ error: 'empty database' });
+        return res.json({ error: 'database error' });
       }
       return res.json(data);
     })
