@@ -8,7 +8,7 @@ function ShortUrlList(props) {
     <section>
       <ul>
         {urlList.map((url) => (
-          <li key={url.shortUrl}>
+          <li key={url._id}>
             <ShortUrl payload={url} />
           </li>
         ))}

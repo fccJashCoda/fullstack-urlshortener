@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function CreateShortUrl(props) {
   const [input, setInput] = useState('');
@@ -13,8 +13,7 @@ function CreateShortUrl(props) {
       <button
         onClick={(e) => {
           e.preventDefault();
-          console.log(input);
-          props.action();
+          props.action(input);
           setInput('');
         }}
       >

@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
-app.use('/short', router.urlshortener);
+app.use('/api/short', router.urlshortener);
 
 // @ route GET short/:shorturl
 // @ desc Access a specific shorturl
