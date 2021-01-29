@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ShortUrl from './ShortUrl';
 
-function ShortUrlList() {
-  const [urlList, setUrlList] = useState([
-    { originalUrl: 'hi', shortUrl: 'there' },
-    { originalUrl: 'howare', shortUrl: 'you' },
-  ]);
+function ShortUrlList(props) {
+  const { urlList } = props;
 
   return (
     <section>
       <ul>
         {urlList.map((url) => (
-          <ShortUrl payload={url} key={url.short} />
+          <li key={url.shortUrl}>
+            <ShortUrl payload={url} />
+          </li>
         ))}
       </ul>
     </section>
