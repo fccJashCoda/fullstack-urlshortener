@@ -40,7 +40,7 @@ app.get('/:shorturl', (req, res, next) => {
 
 // 404
 app.use((req, res) => {
-  res.json({ error: '404' });
+  res.status(404).json({ error: '404' });
 });
 
 const port = process.env.PORT || 5000;

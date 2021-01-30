@@ -61,6 +61,7 @@ router.post('/new', async (req, res) => {
 // @ access Public
 router.get('/showall', (req, res) => {
   ShortUrl.find()
+    .sort({ createdAt: -1 })
     .then((data) => {
       if (!data) {
         return res.json({ error: 'database error' });
