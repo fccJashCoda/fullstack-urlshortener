@@ -9,7 +9,7 @@ function ShortUrlList(props) {
       <ul>
         {urlList.map((url) => (
           <li key={url._id}>
-            <ShortUrl payload={url} />
+            <ShortUrl payload={url} action={props.action} />
           </li>
         ))}
       </ul>

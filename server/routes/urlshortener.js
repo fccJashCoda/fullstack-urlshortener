@@ -56,6 +56,25 @@ router.post('/new', async (req, res) => {
     .catch((err) => res.json(err));
 });
 
+// @ route DELETE short/delete
+// @ desc Delete a short url
+// @ access Public
+router.delete('/delete', (req, res) => {
+  const id = req.body.id;
+  if (!id) {
+    return res.json({ error: 'missing data' });
+  }
+
+  ShortUrl.findOneAndDelete({ _id: id })
+    .then((data) => {
+      if (!data) {
+        return res.json({ error: 'invalid id' });
+      }
+      return res.json({ message: 'Success' });
+    })
+    .catch((err) => res.json({ error: err }));
+});
+
 // @ route GET short/showall
 // @ desc Get all short urls in database
 // @ access Public
