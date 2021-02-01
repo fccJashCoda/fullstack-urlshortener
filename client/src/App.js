@@ -58,17 +58,18 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Url Shortener</h1>
-      <div id="urlShortener">
-        <CreateShortUrl action={postData} />
-        {urlList.length ? (
-          <ShortUrlList urlList={urlList} delete={deleteData} />
-        ) : (
-          ''
-        )}
+      <div class="container">
+        <div id="urlShortener">
+          <CreateShortUrl action={postData} />
+          {urlList.length ? (
+            <ShortUrlList urlList={urlList} delete={deleteData} />
+          ) : (
+            ''
+          )}
+        </div>
+        {loading ? <p>Loading...</p> : ''}
+        {error ? <p>ERROR!</p> : ''}
       </div>
-      {loading ? <p>Loading...</p> : ''}
-      {error ? <p>ERROR!</p> : ''}
     </div>
   );
 }
