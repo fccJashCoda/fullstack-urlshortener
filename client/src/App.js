@@ -14,7 +14,6 @@ function App() {
     fetch('/api/short/showall')
       .then((response) => response.json())
       .then((data) => {
-        console.log('refetch');
         setUrlList(data);
         setLoading(false);
       })
@@ -59,8 +58,15 @@ function App() {
 
   return (
     <div className="App">
-      <CreateShortUrl action={postData} />
-      <ShortUrlList urlList={urlList} action={deleteData} />
+      <h1>Url Shortener</h1>
+      <div id="urlShortener">
+        <CreateShortUrl action={postData} />
+        {urlList.length ? (
+          <ShortUrlList urlList={urlList} delete={deleteData} />
+        ) : (
+          ''
+        )}
+      </div>
       {loading ? <p>Loading...</p> : ''}
       {error ? <p>ERROR!</p> : ''}
     </div>
@@ -68,3 +74,9 @@ function App() {
 }
 
 export default App;
+
+// modifications.
+// save links both to db and locally
+// make links expire after a period  --backend
+// remove delete function
+// shortUrlList should only render if there is a

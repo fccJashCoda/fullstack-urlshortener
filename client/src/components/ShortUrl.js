@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function ShortUrl(props) {
   const { _id, originalUrl, shortUrl } = props.payload;
+
+  const shortUrlLink = `${shortUrl}`;
+
+  const copyLink = (e) => {
+    console.log(e.target.parentNode);
+    navigator.clipboard.writeText(shortUrlLink);
+  };
+
+  useEffect(() => {
+    console.log(`mounting ${shortUrl}`);
+
+    return () => console.log(`unmounting ${shortUrl}`);
+  }, []);
+
   return (
-    <div>
+    <div className="short">
       <a href={originalUrl}>{originalUrl}</a>
-      <a href={shortUrl}>{shortUrl}</a>
-      <button className="copy">Copy</button>
-      <button className="delete" onClick={() => props.action(_id)}>
-        X
-      </button>
+      <div>
+        <a href={shortUrl} className="short-link">
+          {shortUrl}
+        </a>
+        <button className="copy" onClick={(e) => copyLink(e)}>
+          Copy
+        </button>
+        <button onClick={() => props.delete(_id)}>dev:delete</button>
+      </div>
     </div>
   );
 }
