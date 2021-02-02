@@ -2,28 +2,47 @@
   --clr-primary: #0b1736;
   --clr-secondary: #1b3987;
   --clr-tertiary: #edf2fe;
+
+  --btn-primary: #1b3987;
+  --btn-secondary: #2a5bd7;
+  --btn-tertiary: #edf2fe;
 }
 
-body {
-  background: #333;
-}
-
+/* UTILITIES */
 .text-center {
   text-align: center;
 }
+
 .container {
   margin-inline: auto;
   width: min(94%, 70.5em);
 }
 
+/* img {
+  width: 100%;
+} */
+
+/* BUTTONS */
 .btn {
   border: none;
   color: #fff;
   border-radius: 0.5em;
-  background-color: var(--clr-tertiary);
   padding: 1em;
   font-size: 0.95em;
 }
+
+.btn-primary {
+  background-color: var(--btn-primary);
+}
+.btn-secondary {
+  background-color: var(--btn-secondary);
+}
+.btn-tertiary {
+  background-color: var(--btn-tertiary);
+  color: var(--btn-secondary);
+}
+
+/* APP - REACT SECTION */
 
 form {
   width: 100%;
@@ -66,6 +85,10 @@ ul {
   justify-content: space-between;
 }
 
+.short a {
+  margin-block: auto;
+}
+
 .App {
   background: var(--clr-primary);
   padding: 2.5em 0;
@@ -81,18 +104,59 @@ ul {
   padding: 1em;
 }
 
-header .contaienr {
-  display: flex;
-}
-
-footer .container nav {
-  display: flex;
-  justify-content: space-between;
-}
-
 .list-cta {
   background-color: var(--clr-tertiary);
 }
 .list-cta h4 {
   margin-block: auto;
+}
+
+/* HEADER SECTION */
+
+header .container nav,
+header .container nav > * {
+  display: flex;
+}
+
+header .container nav > ul + ul {
+  display: none;
+}
+
+header .container nav {
+  justify-content: space-between;
+}
+header .container nav ul {
+  margin-block: auto;
+}
+header .container nav ul > li + li {
+  margin-left: 0.5em;
+}
+
+/* HERO */
+/* SUB-HERO */
+#objectives {
+  display: flex;
+  flex-direction: column;
+}
+
+/* BRAND-CUSTOMERS */
+#brand-customers {
+}
+#customer-logos {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* BOTTOM CTA */
+#bottom-cta {
+  background-color: var(--clr-primary);
+}
+
+#bottom-cta h3 {
+  color: #fff;
+  padding: 4em;
+}
+/* FOOTER */
+footer .container {
+  display: flex;
+  justify-content: space-between;
 }
