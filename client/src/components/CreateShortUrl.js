@@ -25,10 +25,8 @@ function CreateShortUrl(props) {
         </button>
       </form>
       <p class="terms-and-services text-center">
-        By clicking Shorten, you are agreeing to our
-        <a href="/">Terms of Service</a>
-        and
-        <a href="/">Privacy Policy</a>
+        By clicking Shorten, you are agreeing to our{' '}
+        <a href="/">Terms of Service</a> and <a href="/">Privacy Policy</a>
       </p>
     </>
   );

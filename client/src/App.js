@@ -69,6 +69,7 @@ function App() {
         </div>
         {loading ? <p>Loading...</p> : ''}
         {error ? <p>ERROR!</p> : ''}
+        <p>Scroll to learn more</p>
       </div>
     </div>
   );

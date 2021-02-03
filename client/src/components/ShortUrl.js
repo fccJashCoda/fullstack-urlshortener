@@ -26,7 +26,9 @@ function ShortUrl(props) {
         <button className="btn btn-tertiary" onClick={(e) => copyLink(e)}>
           Copy
         </button>
-        <button onClick={() => props.delete(_id)}>dev:delete</button>
+        <button onClick={() => props.delete(_id)} className="debug">
+          dev:delete
+        </button>
       </div>
     </div>
   );
