@@ -128,12 +128,22 @@ input {
   margin: 0;
   margin-block: auto;
   margin-bottom: 0.5em;
+  color: #555;
+}
+
+.short-link {
+  display: inline-block;
+  margin: 0.5em 0;
 }
 
 .App {
   background: var(--clr-primary);
   padding: 2.5em 0;
 }
+
+/* .App .container {
+  position: relative;
+} */
 
 #urlShortener ul {
   background: #fff;
@@ -152,6 +162,13 @@ input {
   margin-block: auto;
 }
 
+/* .scroll-down {
+  position: absolute;
+  bottom: -5em;
+  width: 100%;
+  text-align: center;
+} */
+
 /* HEADER SECTION */
 
 header {
@@ -159,7 +176,6 @@ header {
   position: fixed;
   padding: 0.5em;
   padding-top: 1.1em;
-  background: #fff;
 }
 
 header .container nav,
@@ -183,6 +199,7 @@ header .container nav ul > li + li {
 
 #hero-copy {
   min-height: 19em;
+  padding-bottom: 2em;
 }
 
 h1 {
@@ -205,6 +222,12 @@ h3 {
   left: -0.6em;
 }
 
+.burger {
+  position: relative;
+  top: 0.5em;
+  font-size: 1.4em;
+}
+
 /* HERO */
 /* SUB-HERO */
 
@@ -214,13 +237,22 @@ h3 {
 }
 
 #sub-hero .container {
-  padding-bottom: 5em;
+  /* padding-bottom: 5em; */
   border-bottom: 1px solid var(--clr-tertiary);
 }
 
-/* #objectives > div {
-  margin-top: 6em;
-} */
+#sub-hero .container h5 {
+  font-size: 1.1em;
+  font-weight: 100;
+  margin-top: 0.5em;
+}
+
+.mini-cta {
+  margin: 3em !important;
+}
+.mini-cta > button {
+  margin-bottom: 1em;
+}
 
 #objectives {
   display: flex;
@@ -232,8 +264,16 @@ figure {
   width: 30%;
   flex: 1 0 auto;
 }
-#brand-customers {
+
+figure > * {
+  display: block;
+  margin-inline: auto;
 }
+
+#brand-customers .container {
+  padding: 3em 0;
+}
+
 #customer-logos {
   display: flex;
   flex-wrap: wrap;
@@ -249,7 +289,30 @@ figure {
   color: #fff;
 }
 /* FOOTER */
-/* footer .container {
-  display: flex;
-  justify-content: space-between;
-} */
+
+footer {
+  padding-top: 4em;
+}
+
+footer a {
+  color: #555;
+}
+
+footer .container div h5 {
+  font-size: 1em;
+  font-weight: 800;
+}
+
+footer .container div ul {
+  margin-bottom: 1em;
+}
+
+#social {
+  text-align: center;
+  font-size: 1.7em;
+  margin-bottom: 0.2em;
+}
+
+#social > a + a {
+  margin-left: 0.7em;
+}
