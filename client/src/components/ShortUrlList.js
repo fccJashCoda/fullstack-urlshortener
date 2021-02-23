@@ -6,13 +6,12 @@ function ShortUrlList(props) {
   const { urlList } = props;
 
   const renderList = [urlList[0], 'placeholder', ...urlList.slice(1)];
-  console.log(renderList);
 
   return (
     <ul>
       {renderList.map((url, index) => {
         if (index === 1) {
-          return <ListCta />;
+          return <ListCta key={index} />;
         }
         return (
           <li key={url._id}>

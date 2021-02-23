@@ -33,7 +33,7 @@ app.get('/:shorturl', (req, res, next) => {
       if (!url) {
         return res.json({ response: 'url not found' });
       }
-      return res.json(url);
+      return res.redirect(url.originalUrl);
     })
     .catch((err) => console.log(err));
 });
